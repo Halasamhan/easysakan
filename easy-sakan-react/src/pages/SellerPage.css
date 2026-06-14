@@ -1,0 +1,478 @@
+/* SellerPage.css (Mosaic Palette & Motion) */
+
+/* =========================================
+   1. Variables & Reset
+   ========================================= */
+:root {
+  /* --- Brand Palette --- */
+  --primary:        #1876D3;
+  --primary-dark:   #082D56;
+  --primary-light:  #E8F4FF;
+  --accent:         #4DAAFF;
+  --accent-hover:   #1565C0;
+  --dark:           #082D56;
+
+  /* --- Semantic --- */
+  --accent-coral:   #FF6B6B;
+  --success:        #22C55E;
+  --warning:        #F59E0B;
+  --error:          #EF4444;
+  --text-secondary: #334155;
+  --bg-page:        #F8FAFC;
+  --bg-card:        #FFFFFF;
+  --bg-border:      #E2E8F0;
+  --btn-hover:      #1565C0;
+
+  /* --- Neutrals --- */
+  --bg-color:    #F8FAFC;
+  --surface:     #ffffff;
+  --text-main:   #082D56;
+  --text-muted:  #64748B;
+  --border:      #E2E8F0;
+
+  /* --- Effects --- */
+  --radius:         16px;
+  --radius-lg:      24px;
+  --shadow-soft:    0 10px 40px -10px rgba(24, 118, 211, 0.15);
+  --shadow-hover:   0 20px 50px -10px rgba(24, 118, 211, 0.25);
+  --shadow-glow:    0 0 25px rgba(24, 118, 211, 0.3);
+
+  /* --- Transitions --- */
+  --transition-smooth: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --transition-bounce: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+.seller-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* =========================================
+   2. Animations
+   ========================================= */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(2deg); }
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%) skewX(-20deg); }
+  100% { transform: translateX(200%) skewX(-20deg); }
+}
+
+@keyframes pulse-border {
+  0% { box-shadow: 0 0 0 0 rgba(24, 118, 211, 0.4); }
+  70% { box-shadow: 0 0 0 6px rgba(24, 118, 211, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(24, 118, 211, 0); }
+}
+
+/* =========================================
+   3. Hero Section
+   ========================================= */
+.seller-main {
+  flex: 1;
+}
+
+.seller-hero-section {
+  /* Mosaic Dark Overlay */
+  background: linear-gradient( rgba(24, 117, 211, 0.389) 100%),
+              url('https://plus.unsplash.com/premium_photo-1733259759944-1603fc5217ad?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  
+  padding: 6rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  color: white;
+}
+
+/* Decorative Blobs (Purple & Blue) */
+.seller-hero-section::before,
+.seller-hero-section::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.3;
+  z-index: 0;
+}
+.seller-hero-section::before {
+  width: 350px; height: 350px;
+  background: var(--primary); /* Purple */
+  top: -50px; left: -50px;
+  animation: float 10s ease-in-out infinite;
+}
+.seller-hero-section::after {
+  width: 250px; height: 250px;
+  background: var(--accent); /* Blue */
+  bottom: -20px; right: -20px;
+  animation: float 12s ease-in-out infinite reverse;
+}
+
+.seller-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+  animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.seller-hero-title {
+  font-size: 3.2rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  background: linear-gradient(to right, #ffffff, #e2e8f0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.1;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.seller-hero-subtitle {
+  font-size: 1.3rem;
+  color: #e2e8f0;
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+}
+
+.seller-hero-buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Buttons (Hero) */
+.btn-primary, .seller-submit-btn {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  color: white;
+  border: none;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition-bounce);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(24, 118, 211, 0.4);
+}
+
+.btn-primary:hover, .seller-submit-btn:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 15px 40px rgba(21, 101, 192, 0.5);
+}
+
+/* Shine Effect */
+.btn-primary::before, .seller-submit-btn::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.5), transparent);
+  transform: translateX(-100%);
+  transition: 0.6s;
+}
+.btn-primary:hover::before, .seller-submit-btn:hover::before {
+  transform: translateX(100%);
+}
+
+.btn-secondary, .seller-cancel-btn {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(5px);
+  color: white;
+  border: 2px solid rgba(255,255,255,0.3);
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+.btn-secondary:hover {
+  background: rgba(255,255,255,0.25);
+  border-color: white;
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   4. Form Section
+   ========================================= */
+.seller-form-section {
+  padding: 0 1.5rem 4rem;
+  position: relative;
+  margin-top: -4rem;
+  z-index: 10;
+}
+
+.seller-form-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.seller-form-card {
+  /* Glassmorphism Card */
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: var(--radius-lg);
+  padding: 3.5rem;
+  box-shadow: var(--shadow-soft);
+  animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s backwards;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.seller-form-header h2 {
+  font-size: 2.2rem;
+  color: var(--dark);
+  margin-bottom: 0.5rem;
+  font-weight: 800;
+}
+.seller-form-header p {
+  color: var(--text-muted);
+  margin-bottom: 2.5rem;
+}
+
+.seller-success-banner {
+  background: linear-gradient(to right, #d1fae5, #ecfdf5);
+  border: 1px solid #10b981;
+  color: #065f46;
+  padding: 1.2rem;
+  border-radius: var(--radius);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  animation: fadeInUp 0.5s ease;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
+}
+
+/* =========================================
+   5. Grid & Inputs
+   ========================================= */
+.seller-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.seller-full-width {
+  grid-column: span 2;
+}
+
+.seller-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  position: relative;
+}
+
+label {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--dark);
+  margin-left: 2px;
+}
+
+input, select, textarea {
+  padding: 1rem 1.2rem;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--dark);
+  transition: var(--transition-smooth);
+  background-color: #fff;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  background-color: #fff;
+  box-shadow: 0 0 0 5px rgba(121, 76, 197, 0.15);
+  transform: translateY(-3px);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+.seller-help {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: -0.3rem;
+  margin-left: 2px;
+}
+
+/* =========================================
+   6. File Upload
+   ========================================= */
+.file-upload-area {
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  background-color: #fafafa;
+  position: relative;
+  overflow: hidden;
+}
+
+.file-upload-area:hover {
+  border-color: var(--primary);
+  background-color: var(--primary-light);
+  transform: scale(1.01);
+}
+
+.upload-prompt {
+  color: var(--text-muted);
+  font-weight: 600;
+  pointer-events: none;
+}
+.upload-prompt::before {
+  content: '📷';
+  display: block;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  filter: grayscale(1);
+  transition: var(--transition-smooth);
+}
+.file-upload-area:hover .upload-prompt::before {
+  filter: grayscale(0);
+  transform: scale(1.15) rotate(10deg);
+}
+
+/* =========================================
+   7. Footer Actions
+   ========================================= */
+.seller-buttons {
+  margin-top: 2.5rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.seller-cancel-btn {
+  background-color: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  padding: 1rem 2.5rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+.seller-cancel-btn:hover {
+  border-color: var(--dark);
+  color: var(--dark);
+  background: #f1f5f9;
+  transform: translateY(-2px);
+}
+
+.seller-submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* =========================================
+   7b. Extra Photos Grid
+   ========================================= */
+.extra-photos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.extra-photo-thumb {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  aspect-ratio: 1;
+  border: 2px solid var(--border);
+  transition: var(--transition-smooth);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.extra-photo-thumb:hover {
+  border-color: var(--accent);
+  transform: scale(1.05);
+  z-index: 2;
+}
+
+.extra-photo-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.extra-photo-remove {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(220, 38, 38, 0.9);
+  color: #fff;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.extra-photo-remove:hover {
+  background: #dc2626;
+  transform: scale(1.1);
+}
+
+/* =========================================
+   8. Responsive
+   ========================================= */
+@media (max-width: 768px) {
+  .seller-hero-title { font-size: 2.2rem; }
+  .seller-grid { grid-template-columns: 1fr; }
+  .seller-form-card { padding: 2rem; }
+  .seller-full-width { grid-column: span 1; }
+  .seller-buttons { flex-direction: column-reverse; }
+  .seller-buttons button { width: 100%; }
+  .seller-hero-section { background-attachment: scroll; }
+}

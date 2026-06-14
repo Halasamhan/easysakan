@@ -1,0 +1,43 @@
+:root {
+  /* === New Brand Palette === */
+  --primary:        #1876D3;
+  --primary-dark:   #082D56;
+  --primary-light:  #E8F4FF;
+  --secondary:      #4DAAFF;
+  --dark:           #082D56;
+  --gray:           #64748B;
+  --white:          #ffffff;
+
+  /* Accent & Semantic Colors */
+  --accent:         #FF6B6B;
+  --success:        #22C55E;
+  --warning:        #F59E0B;
+  --error:          #EF4444;
+  --text-secondary: #334155;
+  --bg-page:        #F8FAFC;
+  --bg-card:        #FFFFFF;
+  --bg-border:      #E2E8F0;
+  --btn-hover:      #1565C0;
+
+  /* Text */
+  --text-primary:   #082D56;
+  --text-muted:     #64748B;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  width: 100%;
+}
+
+body {
+  background: #F8FAFC;
+  overflow-x: hidden;
+}

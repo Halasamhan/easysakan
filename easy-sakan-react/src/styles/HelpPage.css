@@ -1,0 +1,253 @@
+/* --- HELP CENTER CSS (Header Removed) --- */
+
+:root {
+  --accent:         #FF6B6B;
+  --success:        #22C55E;
+  --warning:        #F59E0B;
+  --error:          #EF4444;
+  --text-secondary: #334155;
+  --bg-page:        #F8FAFC;
+  --bg-card:        #FFFFFF;
+  --bg-border:      #E2E8F0;
+  --btn-hover:      #1565C0;
+}
+
+.helpcenter-wrapper {
+  background-color: #F8FAFC;
+  min-height: 100vh;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #333;
+}
+
+/* 
+   NOTE: .hc-header, .hc-top, .hc-logo, and .hc-nav styles have been removed. 
+   Use your own website's existing header styles.
+*/
+
+/* Hero & Search Section */
+.hc-hero {
+  background: white;
+  padding: 3rem 0;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.hc-hero h1 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #082D56;
+}
+.hc-search-container {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  border: 2px solid #082D56;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 60px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.hc-icon {
+  padding: 0 1.5rem;
+  font-size: 1.2rem;
+  color: #999;
+}
+.hc-search-container input {
+  flex: 1;
+  border: none;
+  font-size: 1.1rem;
+  outline: none;
+  height: 100%;
+}
+.hc-search-btn {
+  background: #1876D3;
+  color: white;
+  border: none;
+  padding: 0 2.5rem;
+  height: 100%;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.hc-search-btn:hover {
+  background: #d88d00;
+}
+
+/* Main Content Layout */
+.hc-main-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* Left (2 parts) + Sidebar (1 part) */
+  gap: 2rem;
+  padding-bottom: 4rem;
+}
+
+/* Left Column: Results */
+.hc-results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 2rem;
+}
+.hc-results-header h2 {
+  font-size: 1.5rem;
+  margin: 0;
+  color: #082D56;
+}
+.hc-count {
+  color: #666;
+  font-size: 0.9rem;
+}
+.hc-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.hc-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #e1e1e1;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.hc-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  border-color: #082D56;
+}
+.hc-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+.hc-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: #eee;
+  color: #555;
+  white-space: nowrap;
+  margin-right: 10px;
+}
+.hc-tag.apartments { background: #e3f2fd; color: #1565c0; }
+.hc-tag.transport { background: #e8f5e9; color: #2e7d32; }
+.hc-tag.services { background: #fff3e0; color: #ef6c00; }
+.hc-tag.account { background: #f3e5f5; color: #7b1fa2; }
+.hc-card-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #082D56;
+  flex: 1;
+}
+.hc-summary {
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+.hc-answer {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+  color: #333;
+  background: #fafafa;
+  padding: 1rem;
+  border-radius: 4px;
+  animation: slideDown 0.3s ease;
+}
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Right Sidebar */
+.hc-sidebar-box {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #e1e1e1;
+}
+.hc-sidebar-box h3 {
+  margin-top: 0;
+  color: #082D56;
+  margin-bottom: 1rem;
+}
+.hc-sidebar-box ul {
+  list-style: none;
+  padding: 0;
+}
+.hc-sidebar-box li {
+  margin-bottom: 0.5rem;
+}
+.hc-sidebar-box button {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: #333;
+  transition: 0.2s;
+}
+.hc-sidebar-box button:hover {
+  background: #f0f0f0;
+}
+.hc-sidebar-box button.cat-active {
+  background: #082D56;
+  color: white;
+  font-weight: 600;
+}
+
+.hc-contact-card {
+  margin-top: 2rem;
+  background: #082D56;
+  color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+}
+.hc-contact-card h4 {
+  margin-top: 0;
+}
+.hc-contact-card p {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-bottom: 1rem;
+}
+.hc-btn-contact {
+  display: block;
+  background: white;
+  color: #082D56;
+  text-decoration: none;
+  padding: 0.8rem;
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+.hc-empty {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+}
+.hc-empty button {
+  background: #082D56;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hc-main-content { grid-template-columns: 1fr; }
+  .hc-search-container { height: 50px; }
+  .hc-hero h1 { font-size: 1.5rem; }
+}

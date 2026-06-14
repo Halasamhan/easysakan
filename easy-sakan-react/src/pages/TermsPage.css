@@ -1,0 +1,283 @@
+/* --- TermsPage.css (Mosaic Palette) --- */
+
+/* --- General Styles and Variables --- */
+:root {
+  /* --- Mosaic Palette --- */
+  --primary: #794CC5;       /* Purple */
+  --primary-dark: #32146D;   /* Deep Purple */
+  --secondary: #0844AA;      /* Electric Blue */
+  --dark: #1A2B4D;          /* Dark Navy */
+  --light: #f8f7ff;         /* Light Lavender */
+  
+  /* --- Text & Backgrounds --- */
+  --text-main: #1A2B4D;
+  --text-muted: #64748b;
+  --background-page: linear-gradient(180deg, var(--light) 0%, #ffffff 100%);
+  --card-bg: rgba(255, 255, 255, 0.8);
+  --border-color: #e9d5ff;
+  
+  /* --- Typography --- */
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Open Sans', sans-serif;
+  
+  /* --- Effects --- */
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --shadow-card: 0 20px 50px -12px rgba(121, 76, 197, 0.15);
+  --shadow-hover: 0 25px 60px -10px rgba(121, 76, 197, 0.25);
+  --shadow-text: 0 4px 20px rgba(26, 43, 77, 0.2);
+  
+  /* --- Transitions --- */
+  --duration: 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-main);
+  background: var(--background-page);
+  line-height: 1.7;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.container-wide {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 25px 15px;
+}
+
+/* --- Terms Page Specific Styles --- */
+.terms-wrapper {
+  padding: 30px 0;
+}
+
+.terms-wrapper.rtl {
+  direction: rtl;
+}
+
+.terms-container {
+  /* Glassmorphism Card Style */
+  background: var(--card-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-card);
+  transition: transform var(--duration);
+}
+
+.terms-container:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Typography */
+.terms-content h1 {
+  /* Gradient Text: Purple to Blue */
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  margin-bottom: 10px;
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.terms-date {
+  color: var(--text-muted);
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 30px;
+  font-style: italic;
+  opacity: 0.7;
+  position: relative;
+  display: inline-block;
+}
+/* Decorative line under date */
+.terms-date::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: var(--primary);
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+
+/* Section Styling */
+.terms-content section {
+  margin-bottom: 35px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.terms-content section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.terms-content h2 {
+  /* Dark Navy for headings */
+  color: var(--dark);
+  margin-bottom: 15px;
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 8px;
+  display: inline-block;
+}
+
+/* Electric Blue Underline */
+.terms-content h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: var(--secondary);
+  border-radius: 2px;
+}
+
+.terms-wrapper.rtl .terms-content h2::after {
+  left: auto;
+  right: 0;
+}
+
+/* Text Styling */
+.terms-content p,
+.terms-content ul li {
+  color: var(--text-main);
+  font-size: 1.05rem;
+  margin-bottom: 15px;
+  line-height: 1.8;
+}
+
+/* Bold Text (Purple) */
+.terms-content strong {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* List Styling */
+.terms-content ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 15px;
+}
+
+.terms-content li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 12px;
+  transition: all 0.3s ease;
+}
+
+.terms-content li:hover {
+  color: var(--primary);
+  transform: translateX(5px);
+}
+
+.terms-wrapper.rtl .terms-content li {
+  padding-left: 0;
+  padding-right: 28px;
+}
+.terms-wrapper.rtl .terms-content li:hover {
+  transform: translateX(-5px);
+}
+
+/* Electric Blue Bullet */
+.terms-content li::before {
+  content: '✔';
+  position: absolute;
+  left: 0;
+  top: 1px;
+  color: var(--secondary);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.terms-wrapper.rtl .terms-content li::before {
+  left: auto;
+  right: 0;
+}
+
+/* Contact Info Box (Glass Style) */
+.animated-contact-info {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  border-left: 4px solid var(--secondary);
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 15px;
+  box-shadow: inset 0 0 10px rgba(8, 68, 170, 0.05);
+}
+
+.terms-wrapper.rtl .animated-contact-info {
+  border-left: none;
+  border-right: 4px solid var(--secondary);
+}
+
+.animated-contact-info strong {
+  color: var(--dark);
+  font-weight: 700;
+}
+
+/* --- Animations (Staggered Entrance) --- */
+.animated-section-title {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInSlideUp var(--duration) ease forwards;
+}
+
+.animated-content {
+  opacity: 0;
+  animation: fadeIn 0.8s ease forwards;
+  animation-delay: 0.2s;
+}
+
+.animated-list-item {
+  opacity: 0;
+  animation: fadeInRight 0.6s ease forwards;
+}
+
+/* Generate staggered delays for list items */
+.terms-content ul li:nth-child(1) { animation-delay: 0.3s; }
+.terms-content ul li:nth-child(2) { animation-delay: 0.4s; }
+.terms-content ul li:nth-child(3) { animation-delay: 0.5s; }
+.terms-content ul li:nth-child(4) { animation-delay: 0.6s; }
+
+@keyframes fadeInSlideUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(-15px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) {
+  .container-wide { padding: 20px 10px; }
+  .terms-content h1 { font-size: 2.2rem; }
+  .terms-content h2 { font-size: 1.6rem; }
+  .terms-container { padding: 30px 25px; }
+}
+
+@media (max-width: 768px) {
+  .terms-wrapper { padding: 20px 0; }
+  .terms-content h1 { font-size: 1.9rem; }
+  .terms-content h2 { font-size: 1.5rem; }
+  .terms-content p { font-size: 1rem; }
+  .terms-container { padding: 25px 20px; }
+}

@@ -1,0 +1,54 @@
+/* CSS Variables */
+:root {
+  --blue-light: #4DAAFF;
+  --blue-main: #1876D3;
+  --green-soft: #CCFFA5;
+  --blue-deep: #082D56;
+  --text: #082D56;
+  --bg: #f6fbff;
+}
+
+/* Float button for selling */
+.floating-sell-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 70px;
+  height: 70px;
+  background: var(--green-soft);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(204, 255, 165, 0.4);
+  border: 2px solid var(--blue-deep);
+  z-index: 999;
+  transition: all 0.3s ease;
+}
+
+.floating-sell-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 25px rgba(204, 255, 165, 0.6);
+}
+
+@media (max-width: 768px) {
+  .floating-sell-btn {
+    width: 60px;
+    height: 60px;
+    font-size: 1.8rem;
+    bottom: 20px;
+    right: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .floating-sell-btn {
+    width: 55px;
+    height: 55px;
+    font-size: 1.5rem;
+    bottom: 15px;
+    right: 15px;
+  }
+}
