@@ -2,7 +2,7 @@ import { useState, useMemo, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLanguage } from '../context/LanguageContext';
 import { translations, toArabicNum } from '../data/sellerdashboard';
-import "./SellerHub.css";
+import "../SellerHub.css";
 
 const API = "http://localhost/easysakan";
 
