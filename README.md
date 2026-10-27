@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # EasySakan
 
 Full-stack web application (PHP + React) for real estate, transportation, and services booking platform.
@@ -18,3 +19,6 @@ Full-stack web application (PHP + React) for real estate, transportation, and se
 ## Project Structure
 - /easy-sakan-react → React frontend
 - / (root) → PHP backend
+=======
+# easysakan
+>>>>>>> 54fe6e02d6875d90c4e9821400c7d7f073db6305
